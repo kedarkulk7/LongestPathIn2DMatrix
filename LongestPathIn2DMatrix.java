@@ -7,6 +7,7 @@ public class LongestPathIn2DMatrix {
 
 	public static List<String> visitedlist = new ArrayList<>();
 	public static int max = 0;
+	public static int difference = 3;
 	
 	public static void main(String[] args) {
 
@@ -41,35 +42,35 @@ public class LongestPathIn2DMatrix {
 		int maxrow = grid.length-1;
 		int maxcol = grid[0].length-1;
 
-		if(Math.abs(grid[i][j] - grid[i][Math.min(j+1, maxcol)])>3) {
+		if(Math.abs(grid[i][j] - grid[i][Math.min(j+1, maxcol)])>difference) {
 			if(!visitedlist.contains(i+","+Math.min(j+1, maxcol)))
 				s = (i+","+Math.min(j+1, maxcol));
 		}
-		if(Math.abs(grid[i][j] - grid[Math.min(i+1, maxrow)][Math.min(j+1, maxcol)])>3) {
+		if(Math.abs(grid[i][j] - grid[Math.min(i+1, maxrow)][Math.min(j+1, maxcol)])>difference) {
 			if(!visitedlist.contains(Math.min(i+1, maxrow)+","+ Math.min(j+1, maxcol)))
 				s = (Math.min(i+1, maxrow)+","+ Math.min(j+1, maxcol));
 		}
-		if(Math.abs(grid[i][j] - grid[Math.min(i+1, maxrow)][Math.min(j, maxcol)])>3) {
+		if(Math.abs(grid[i][j] - grid[Math.min(i+1, maxrow)][Math.min(j, maxcol)])>difference) {
 			if(!visitedlist.contains( Math.min(i+1, maxrow)+","+Math.min(j, maxcol)))
 				s = ( Math.min(i+1, maxrow)+","+Math.min(j, maxcol));
 		}
-		if(Math.abs(grid[i][j] - grid[Math.min(i+1, maxrow)][Math.max(j-1, 0)])>3) {
+		if(Math.abs(grid[i][j] - grid[Math.min(i+1, maxrow)][Math.max(j-1, 0)])>difference) {
 			if(!visitedlist.contains(Math.min(i+1, maxrow)+","+ Math.max(j-1, 0)))
 				s = (Math.min(i+1, maxrow)+","+ Math.max(j-1, 0));
 		}
-		if(Math.abs(grid[i][j] - grid[Math.min(i, maxrow)][Math.max(j-1, 0)])>3) {
+		if(Math.abs(grid[i][j] - grid[Math.min(i, maxrow)][Math.max(j-1, 0)])>difference) {
 			if(!visitedlist.contains(Math.min(i, maxrow)+","+ Math.max(j-1, 0)))
 				s = (Math.min(i, maxrow)+","+ Math.max(j-1, 0));
 		}
-		if(Math.abs(grid[i][j] - grid[Math.max(i-1, 0)][Math.max(j-1, 0)])>3) {
+		if(Math.abs(grid[i][j] - grid[Math.max(i-1, 0)][Math.max(j-1, 0)])>difference) {
 			if(!visitedlist.contains( Math.max(i-1, 0)+","+Math.max(j-1, 0)))
 				s = ( Math.max(i-1, 0)+","+Math.max(j-1, 0));
 		}
-		if(Math.abs(grid[i][j] - grid[Math.max(i-1, 0)][Math.min(j, maxcol)])>3) {
+		if(Math.abs(grid[i][j] - grid[Math.max(i-1, 0)][Math.min(j, maxcol)])>difference) {
 			if(!visitedlist.contains( Math.max(i-1, 0)+","+Math.min(j, maxcol)))
 				s = ( Math.max(i-1, 0)+","+Math.min(j, maxcol));
 		}
-		if(Math.abs(grid[i][j] - grid[Math.max(i-1, 0)][Math.min(j+1, maxcol)])>3) {
+		if(Math.abs(grid[i][j] - grid[Math.max(i-1, 0)][Math.min(j+1, maxcol)])>difference) {
 			if(!visitedlist.contains( Math.max(i-1, 0)+","+Math.min(j+1, maxcol)))
 				s = ( Math.max(i-1, 0)+","+Math.min(j+1, maxcol));
 		}
